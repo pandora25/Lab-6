@@ -10,27 +10,39 @@ namespace lab6
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("welcome to Roll And Dice Game");
-            Console.WriteLine("please enter or press Enter to begin the Game ?");
-            string entrance = Console.ReadLine();
-
-            while (string.IsNullOrEmpty(entrance))
+            bool repeat = true;
+            while (repeat)
             {
-                Console.WriteLine("roll the dice (y/n)");
-                string input = Console.ReadLine();
+                Console.WriteLine("welcome to grand circus casino! Roll the dice?");
 
-                if (input == "y")
+                Console.WriteLine("how many sides shoud each dice have?");
+
+                Console.Write("first one: ");
+                int dice1 = int.Parse(Console.ReadLine());
+                Console.Write("second one: ");
+                int dice2 = int.Parse(Console.ReadLine());
+
+                Random rolling = new Random();
+
+                int x = rolling.Next(1, dice1 + 1);
+                int y = rolling.Next(1, dice2 +1);
+
+
+                Console.WriteLine($"the number are\n{x}\n{y}");
+                Console.WriteLine("welcome to grand circus casino! Roll the dice? (y/n)");
+                string validation = Console.ReadLine().ToLower();
+                if (validation == "y")
                 {
-                    Random up = new Random();
-                  
-
-                    int x = up.Next(1, 6);
-                    int y = up.Next(1, 6);
-
-                    Console.WriteLine($"the number are {x} {y}");
+                    continue;
                 }
-                break;
-            }      
+                repeat = false;
+            }
         }
     }
+
+
+
+
+
+  
 }
